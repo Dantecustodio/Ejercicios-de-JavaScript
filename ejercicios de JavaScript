@@ -5,7 +5,7 @@ let usuarios = clientes.concat(empleados);
 console.log(usuarios);
 //ejercicio 2
 let numbers = [5, 32, 43, 4];
-let impares = numbers.filter(function(n) { return n % 2 !== 0; });
+let impares = numbers.filter((n) => { return n % 2 !== 0; });
 console.log(impares);
 //ejercicio 3
  let people = [{
@@ -20,7 +20,7 @@ console.log(impares);
     id: 3,
     name: "Peter",
     agee: 55}];
-let youngPeople = people.filter(function(person) {
+let youngPeople = people.filter((person) => {
     return person.age < 35;
 });
 console.log(youngPeople);
