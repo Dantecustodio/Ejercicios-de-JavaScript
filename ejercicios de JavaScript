@@ -1,0 +1,76 @@
+//Ejercicio 1
+let clientes = ["Alejandro", "Alfonso", "Gerardo"];
+let empleados = ["empleado1", "empleado2","empleado3"];
+let usuarios = clientes.concat(empleados);
+console.log(usuarios);
+//ejercicio 2
+let numbers = [5, 32, 43, 4];
+let impares = numbers.filter(function(n) { return n % 2 !== 0; });
+console.log(impares);
+//ejercicio 3
+ let people = [{
+    id:1,
+    name: "John",
+    age: 28
+ },{
+    id: 2,
+    çname: "Jane",
+    age: 31
+ },{
+    id: 3,
+    name: "Peter",
+    agee: 55}];
+let youngPeople = people.filter(function(person) {
+    return person.age < 35;
+});
+console.log(youngPeople);
+//4 ejercicio
+let people2 =  [
+    {name:"bob", id:1},{name: "john", id: 2},
+    {name: "alex", id:3}, {name:"john", id: 3}
+];
+function contarNombres(arr) {
+    let nameCounts = {};
+    arr.forEach(person => {
+        if (nameCounts[person.name]) {
+            nameCounts[person.name]++;
+        } else {
+            nameCounts[person.name] = 1;
+        }
+        
+    });
+    return nameCounts;
+}
+let nombresRepetidos = contarNombres(people2);
+console.log(nombresRepetidos);
+//ejercicio 5
+let myArray = [1,2,3,4];
+function maxMin(arr) {
+    let maximo = Math.max(...arr);
+    let minimo = Math.min(...arr);
+
+    console.log("Numero maximo:", maximo);
+    console.log("Numero minimo: ", minimo);
+}
+maxMin(myArray);
+//ejercicio 6
+let object = {
+    key1: 10,
+    key2: 3,
+    key3: 40,
+    key4: 20
+   };
+
+function sortKeysValues(obj) {
+   let entries = Object.entries(obj); //convierte el onjeto en un arreglo de pares
+   entries.sort((a, b) => {
+    return a[1] - b[1];
+   });
+   let sortedKeys = entries.map((entry) => {
+    return entry[1];
+   });
+   return sortedKeys;
+}
+let sortedKeys = sortKeysValues(object);
+console.log(sortedKeys);
+//_------------------- tabla
