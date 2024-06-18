@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="contenedor">
+        <p>Mueva el ratón sobre esta área para ver su posicion</p>
+    </div>
+
+    <div id="informacion"></div>
+    <script src="main.js"></script>
+</body>
+</html>
+//script
+function mostrarPosicion(event) {
+    const x = event.offsetX;
+    const y = event.offsetY;
+
+    informacion.textContent = `posicion del puntero: (${x}, ${y})`;
+}
+const contenedor = document.getElementById('contenedor');
+const informacion= document.getElementById('informacion');
+
+contenedor.addEventListener('mousemove', mostrarPosicion);
+//css
+#contenedor {
+    width: 500px;
+    height: 300px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+}
+#informacion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    text-align: center;
+    line-height: 30px;
+}
