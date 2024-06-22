@@ -1,0 +1,72 @@
+import { html, css, LitElement } from 'lit';
+
+export class ProyectLit extends LitElement {
+  static styles = css`
+    :host {
+      display: block;
+      padding: 25px;
+      color: var(--proyect-lit-text-color, #000);
+    }
+  `;
+
+  static properties = {
+    header: { type: String },
+    counter: { type: Number },
+  };
+
+  constructor() {
+    super();
+    this.header = 'Hey there';
+    this.counter = 5;
+  }
+
+  __increment() {
+    this.counter += 1;
+  }
+
+  render() {
+    return html`
+      <h2>${this.header} Nr. ${this.counter}!</h2>
+      <button @click=${this.__increment}>increment</button>
+    `;
+  }
+}
+export class LitElementTemplate extends LitElement {
+    static get properties() {
+        return{
+        title: { type: String},
+        counter: {type: Number},
+
+        myString: {type: String},
+        myArray: {type: Array},
+        myBool: {type: Boolean}
+        };
+    }
+
+    constructor()  {
+        super();
+        this.title = 'Hey there';
+        this.counter = 5;
+
+        this.myString = 'hello world';
+        this.myArray = ['an','array','of','test','data'];
+        this.myBool = true;
+    }
+
+    render() {
+        return html`
+        <h2>${this.title}Nr${this.counter}!</h2>
+        <button @click=${this._increment}>increment</button>
+        <hr>
+        <p>Array loops and conditionals</p>
+        <p>${this.myString}</p>
+        <ul>
+            ${this.myArray.map(i => html`<li>${i}</li>`)}
+        </ul>
+        ${this.myBool?
+            html`<p>Renderr some HTML if my bool is true</p>`:
+            html`<p>Render some other html if myBool is false</p>`
+        }
+        `;
+    }
+}
